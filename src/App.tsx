@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 
-export default function App() {
+export function App() {
   return (
     <Container fluid>
       <Navbar bg="light" variant="light" fixed="top">

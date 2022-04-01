@@ -1,10 +1,10 @@
-import { PlayerRankedPicks, RANDOM } from 'src/util/common'
+import { PlayerRankedPicks, RANDOM } from 'src/util/Common'
 
 /**
  * In game picks, primary is that which the game rules recommend,
  * secondary is the curated suggestion if primary is random.
  */
-export const gamePicksMap = {
+export const GAME_PICKS = {
   'Among Nobles': {
     primary: 'The player who shows the highest unique number when all players flip a number on their hand',
   },
@@ -189,4 +189,3 @@ export const gamePicksMap = {
     secondary: 'The player who last went bird watching',
   },
 } as { [name: string]: PlayerRankedPicks }
-export default gamePicksMap

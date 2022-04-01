@@ -6,13 +6,12 @@ import {
   HashRouter,
   Navigate,
 } from 'react-router-dom'
-import NotFound from 'src/routes/notFound'
-import Default from 'src/routes/default'
-import Custom from 'src/routes/custom'
-import Game from 'src/routes/game'
-
+import { NotFound } from 'src/routes/NotFound'
+import { Default } from 'src/routes/Default'
+import { Custom } from 'src/routes/Custom'
+import { Game } from 'src/routes/Game'
+import { App } from 'src/App'
 import 'src/index.css'
-import App from 'src/App'
 
 // More route information can be found at https://reactrouter.com/docs/en/v6/getting-started/tutorial
 // Need to use hash router. More info can be found at https://towardsdev.com/github-pages-does-not-work-for-me-f9d48fd44a5f#b2a0

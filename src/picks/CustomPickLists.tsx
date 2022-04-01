@@ -61,7 +61,6 @@ export const DEFAULT_PICKS = [
   'The player who last hugged a significant other',
   'The player who speaks the most languages (including fictional languages)',
 ]
-export default DEFAULT_PICKS
 
 export const TAS_PICKS = [
   'The player who last visited Namibia, or who has ever been closest to Namibia, becomes the start player',

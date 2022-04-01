@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { sample } from 'lodash'
 import { useLocation } from 'react-router-dom'
 import { Button, Stack } from 'react-bootstrap'
-import DEFAULT_PICKS from 'src/picks/custom'
+import { DEFAULT_PICKS } from 'src/picks/CustomPickLists'
 
-export default function Default() {
+export function Default() {
   // Setup the state to be updated whenever something on the page changes
   const [firstPick, setFirstPick] = useState(sample(DEFAULT_PICKS))
 

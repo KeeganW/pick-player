@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Game() {
+export function NotFound() {
   return (
     <div>
       Nothing found here. Sorry!
