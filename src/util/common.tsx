@@ -9,7 +9,7 @@ export const RANDOM = 'random' as 'random'
 
 export type PlayerRankedPicks = {
     primary: string,
-    secondary: string,
+    secondary?: string,
 }
 type ListedOptions = string[] | PlayerRankedPicks
 
@@ -32,8 +32,7 @@ export function useListedValues(paramName: string, sources: { [name: string]: Li
   const options = Object.keys(sources)
 
   if (!customName) {
-    // TODO(keegan): we may not want to sort these if this gets long
-    const allLinks = Object.keys(sources).sort((a: string, b: string) => (a === 'default' ? -1 : a.localeCompare(b))).map((value) => (
+    const allLinks = Object.keys(sources).map((value) => (
       <ListGroupItem as={Link} to={value} key={value}>{value}</ListGroupItem>
     ))
     return (

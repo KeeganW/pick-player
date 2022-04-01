@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { sample } from 'lodash'
-import { DEFAULT_PICKS } from 'src/picks/default'
 import { useLocation } from 'react-router-dom'
 import { Button, Stack } from 'react-bootstrap'
+import DEFAULT_PICKS from 'src/picks/custom'
 
 export default function Default() {
   // Setup the state to be updated whenever something on the page changes

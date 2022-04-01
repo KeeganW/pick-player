@@ -1,11 +1,12 @@
-import { TAS_PICKS } from 'src/picks/tas'
-import { DEFAULT_PICKS } from 'src/picks/default'
 import { useListedValues } from 'src/util/common'
+import DEFAULT_PICKS, { COIN_FLIP_PICKS, TAS_PICKS, TRAVEL_PICKS } from 'src/picks/custom'
 
 export default function Custom() {
   const customPicksMap: { [name: string]: string[] } = {
-    default: DEFAULT_PICKS,
-    tas: TAS_PICKS,
+    Default: DEFAULT_PICKS,
+    TAS: TAS_PICKS,
+    Travel: TRAVEL_PICKS,
+    "Coin Flip": COIN_FLIP_PICKS,
   }
 
   return useListedValues('customName', customPicksMap)
