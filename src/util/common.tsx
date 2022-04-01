@@ -1,7 +1,7 @@
-import {Link, useLocation, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {sample} from "lodash";
-import React, {useEffect, useState} from "react";
-import {Button, ListGroup, ListGroupItem, Row, Stack} from "react-bootstrap";
+import React, {useState} from "react";
+import {Button, ListGroup, ListGroupItem, Stack} from "react-bootstrap";
 
 export const RANDOM = "random" as "random"
 
@@ -32,7 +32,7 @@ export function useListedValues(paramName: string, sources: { [name: string]: Li
     if (!customName) {
         // TODO(keegan): we may not want to sort these if this gets long
         const allLinks = Object.keys(sources).sort((a: string, b: string) => a === 'default' ? -1 : a.localeCompare(b)).map(value => (
-            <ListGroupItem as={Link} to={value}>{value}</ListGroupItem>
+            <ListGroupItem as={Link} to={value} key={value}>{value}</ListGroupItem>
         ))
         return (
             <ListGroup variant="flush" className="align-items-center">
@@ -41,9 +41,11 @@ export function useListedValues(paramName: string, sources: { [name: string]: Li
         )
     } else if (!options.includes(customName)) {
         return (
-            <main style={{ padding: "1rem 0" }}>
-                <h4>No known picks under this name!</h4>
-            </main>
+            <Stack className="mx-auto">
+                <main className="col-md-6 p-3 mx-auto text-center">
+                    <h4>No known picks under this name!</h4>
+                </main>
+            </Stack>
         )
     } else {
         // Get the customPicks of type ListedOptions
@@ -64,23 +66,4 @@ export function useListedValues(paramName: string, sources: { [name: string]: Li
             </Stack>
         )
     }
-}
-
-export function useDisplayPick(pickText: string | undefined, includeReroll?: boolean) {
-    const [reload, setReload] = useState(false)
-    const rerollButton = (
-        <div className="position-absolute bottom-0 start-50 translate-middle">
-            <Button onClick={() => setReload(!reload)}>
-                Reroll
-            </Button>
-        </div>
-    )
-    return (
-        <Stack className="mx-auto">
-            <main className="col-md-6 p-3 mx-auto text-center">
-                <h4>{pickText}</h4>
-            </main>
-            {includeReroll ? rerollButton : <></>}
-        </Stack>
-    )
 }

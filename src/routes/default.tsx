@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import { sample } from "lodash"
 import { DEFAULT_PICKS } from "src/picks/default"
 import {useLocation} from "react-router-dom";
+import {Button, Stack} from "react-bootstrap";
 
 export default function Default() {
     // Setup the state to be updated whenever something on the page changes
@@ -12,11 +13,20 @@ export default function Default() {
     useEffect(() => {
         setFirstPick(sample(DEFAULT_PICKS))
     }, [location.key])
+    const rerollButton = (
+        <div className="position-absolute bottom-0 start-50 translate-middle">
+            <Button onClick={() => setFirstPick(sample(DEFAULT_PICKS))}>
+                Reroll
+            </Button>
+        </div>
+    )
 
-    // Simple printout
     return (
-        <main style={{ padding: "1rem 0" }}>
-            <h4>{firstPick} is the picked player!</h4>
-        </main>
-    );
+        <Stack className="mx-auto">
+            <main className="col-md-6 p-3 mx-auto text-center">
+                <h4>{firstPick} is the picked player!</h4>
+            </main>
+            {rerollButton}
+        </Stack>
+    )
 }

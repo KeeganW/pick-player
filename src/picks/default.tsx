@@ -58,6 +58,6 @@ export const DEFAULT_PICKS = [
     "The player who went on a date most recently",
     "The player who has owned the most dogs over the course of their life (owning any product made by Snoop Dogg counts as owning a single dog, and having personally met Snoop Dogg counts as owning all the dogs)",
     "The player who last listened to a Katy Perry song, willingly or otherwise",
-    "The player who last hugged a significant other.",
+    "The player who last hugged a significant other",
     "The player who speaks the most languages (including fictional languages)",
 ]
