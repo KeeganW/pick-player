@@ -1,6 +1,7 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {sample} from "lodash";
 import React from "react";
+import {Button, ListGroup, ListGroupItem} from "react-bootstrap";
 
 export const RANDOM = "random" as "random"
 
@@ -21,10 +22,18 @@ export function useListedValues(paramName: string, sources: { [name: string]: Li
     const options = Object.keys(sources)
 
     if (!customName) {
+        // TODO(keegan): we may not want to sort these if this gets long
+        const allLinks = Object.keys(sources).sort((a: string, b: string) => a === 'default' ? -1 : a.localeCompare(b)).map(value => (
+            <ListGroupItem>
+                <Link to={value}>
+                    {value}
+                </Link>
+            </ListGroupItem>
+        ))
         return (
-            <main style={{ padding: "1rem 0" }}>
-                <h4>Please provide a name in the url.</h4>
-            </main>
+            <ListGroup>
+                {allLinks}
+            </ListGroup>
         )
     } else if (!options.includes(customName)) {
         return (

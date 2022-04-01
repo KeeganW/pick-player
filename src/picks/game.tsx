@@ -7,6 +7,6 @@ import {PlayerRankedPicks, RANDOM} from "src/util/common";
 export const gamePicksMap = {
     "Wingspan": {
         primary: RANDOM,
-        secondary: "The person who last went bird watching"
-    }
+        secondary: "The player who last went bird watching"
+    },
 } as { [name: string]: PlayerRankedPicks }
