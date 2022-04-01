@@ -2,7 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import {
   Routes,
-  Route, HashRouter,
+  Route,
+  HashRouter,
   Navigate,
 } from 'react-router-dom'
 import NotFound from 'src/routes/notFound'
@@ -12,7 +13,6 @@ import Game from 'src/routes/game'
 
 import 'src/index.css'
 import App from 'src/App'
-import reportWebVitals from 'src/reportWebVitals'
 
 // More route information can be found at https://reactrouter.com/docs/en/v6/getting-started/tutorial
 // Need to use hash router. More info can be found at https://towardsdev.com/github-pages-does-not-work-for-me-f9d48fd44a5f#b2a0
@@ -35,8 +35,3 @@ render(
   </HashRouter>,
   rootElement,
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
