@@ -3,8 +3,9 @@ import { render } from "react-dom"
 import {
     BrowserRouter,
     Routes,
-    Route,
+    Route, HashRouter,
 } from "react-router-dom"
+import NotFound from "src/routes/notFound"
 import Default from "src/routes/default"
 import Custom from "src/routes/custom"
 import Game from "src/routes/game"
@@ -12,31 +13,27 @@ import Game from "src/routes/game"
 import "src/index.css"
 import App from "src/App"
 import reportWebVitals from "src/reportWebVitals"
+import { Navigate } from "react-router-dom"
 
 // More route information can be found at https://reactrouter.com/docs/en/v6/getting-started/tutorial
+// Need to use hash router. More info can be found at https://towardsdev.com/github-pages-does-not-work-for-me-f9d48fd44a5f#b2a0
 const rootElement = document.getElementById("root");
 render(
-    <BrowserRouter>
+    <HashRouter>
         <Routes>
-            <Route path="/pick-player/" element={<App />} >
-                <Route path="" element={<Default />} />
-                <Route path="custom" element={<Custom />}>
+            <Route path="/" element={<App />} >
+                <Route path="/*" element={<NotFound />} />
+                <Route path="/" element={<Default />} />
+                <Route path="/custom" element={<Custom />}>
                     <Route path=":customName" element={<Custom />} />
                 </Route>
-                <Route path="game" element={<Game />}>
+                    <Route path="game" element={<Game />}>
                     <Route path=":gameName" element={<Game />} />
                 </Route>
-                <Route // No match case
-                    path="*"
-                    element={
-                        <main style={{ padding: "1rem" }}>
-                            <p>Sorry, we couldn't find that page. Please go back!</p>
-                        </main>
-                    }
-                />
             </Route>
+            <Route path="/*" element={<Navigate to="/" />}  />
         </Routes>
-    </BrowserRouter>,
+    </HashRouter>,
     rootElement
 );
 
