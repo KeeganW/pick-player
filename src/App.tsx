@@ -1,10 +1,10 @@
 import React from "react"
-import { Outlet, Link } from "react-router-dom"
+import {Outlet, Link,} from "react-router-dom"
 import {Container, Nav, Navbar,} from "react-bootstrap";
 
 export default function App() {
     return (
-        <Container>
+        <Container fluid>
             <Navbar bg="light" variant="light" fixed="top">
                 <Container>
                     <Navbar.Brand as={Link} to="">

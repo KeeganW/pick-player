@@ -1,7 +1,7 @@
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import {sample} from "lodash";
-import React from "react";
-import {Button, ListGroup, ListGroupItem} from "react-bootstrap";
+import React, {useEffect, useState} from "react";
+import {Button, ListGroup, ListGroupItem, Row, Stack} from "react-bootstrap";
 
 export const RANDOM = "random" as "random"
 
@@ -18,20 +18,24 @@ function isPlayerRankedPicks(toBeDetermined: ListedOptions): toBeDetermined is P
 export function useListedValues(paramName: string, sources: { [name: string]: ListedOptions }) {
     // Get the selected name
     const params = useParams()
+    const [reload, setReload] = useState(false)
+    const rerollButton = (
+        <div className="position-absolute bottom-0 start-50 translate-middle">
+            <Button onClick={() => setReload(!reload)}>
+                Reroll
+            </Button>
+        </div>
+    )
     const customName = params[paramName]
     const options = Object.keys(sources)
 
     if (!customName) {
         // TODO(keegan): we may not want to sort these if this gets long
         const allLinks = Object.keys(sources).sort((a: string, b: string) => a === 'default' ? -1 : a.localeCompare(b)).map(value => (
-            <ListGroupItem>
-                <Link to={value}>
-                    {value}
-                </Link>
-            </ListGroupItem>
+            <ListGroupItem as={Link} to={value}>{value}</ListGroupItem>
         ))
         return (
-            <ListGroup>
+            <ListGroup variant="flush" className="align-items-center">
                 {allLinks}
             </ListGroup>
         )
@@ -42,20 +46,41 @@ export function useListedValues(paramName: string, sources: { [name: string]: Li
             </main>
         )
     } else {
+        // Get the customPicks of type ListedOptions
         const customPicks = sources[customName]
+        let finalPick, includeReroll;
         if (isPlayerRankedPicks(customPicks)) {
-            const rankedPick = customPicks.primary === RANDOM ? customPicks.secondary : customPicks.primary
-            return (
-                <main style={{ padding: "1rem 0" }}>
-                    <h4>{rankedPick}</h4>
-                </main>
-            )
+            finalPick = customPicks.primary === RANDOM ? customPicks.secondary : customPicks.primary
+        } else {
+            finalPick = sample(customPicks)
+            includeReroll = true
         }
-        const pick = sample(customPicks)
         return (
-            <main style={{ padding: "1rem 0" }}>
-                <h4>{pick}</h4>
-            </main>
+            <Stack className="mx-auto">
+                <main className="col-md-6 p-3 mx-auto text-center">
+                    <h4>{finalPick}</h4>
+                </main>
+                {includeReroll ? rerollButton : <></>}
+            </Stack>
         )
     }
+}
+
+export function useDisplayPick(pickText: string | undefined, includeReroll?: boolean) {
+    const [reload, setReload] = useState(false)
+    const rerollButton = (
+        <div className="position-absolute bottom-0 start-50 translate-middle">
+            <Button onClick={() => setReload(!reload)}>
+                Reroll
+            </Button>
+        </div>
+    )
+    return (
+        <Stack className="mx-auto">
+            <main className="col-md-6 p-3 mx-auto text-center">
+                <h4>{pickText}</h4>
+            </main>
+            {includeReroll ? rerollButton : <></>}
+        </Stack>
+    )
 }
