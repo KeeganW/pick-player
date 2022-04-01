@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  /*  Main Colors  */
+  --dark: #212121;
+  --medium-dark: #383838;
+  --medium-light: #CCCCCC;
+  --light: #E3E3E3;
+
+  /*  Meeple Colors  */
+  --meeple-blue: #0487D9;
+  --meeple-green: #0ABF04;
+  --meeple-yellow: #F2CB05;
+  --meeple-orange: #F2B705;
+  --meeple-red: #F20505;
+  --meeple-colorblind-blue: #4BC3F2;
+  --meeple-colorblind-green: #BF533B;
+  --meeple-colorblind-yellow: #AA5EBF;
+  --meeple-colorblind-orange: #F2921D;
+  --meeple-colorblind-red: #F22E3E;
+}
