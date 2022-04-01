@@ -1,29 +1,29 @@
 import React from "react"
 import { Outlet, Link } from "react-router-dom"
-import {Button, ButtonToolbar, Container} from "react-bootstrap";
+import {Container, Nav, Navbar,} from "react-bootstrap";
 
 export default function App() {
     return (
-        <Container className="p-3">
-            <Container className="p-5 mb-4 bg-light rounded-3">
-                <Link to=""><h1>Pick Player</h1></Link>
-                <nav
-                    style={{
-                        borderBottom: "solid 1px",
-                        paddingBottom: "1rem",
-                    }}
-                >
-                    <ButtonToolbar className="custom-btn-toolbar">
-                        <Link to="custom">
-                            <Button>Custom Lists</Button>
-                        </Link>
-                        <Link to="game">
-                            <Button>By Game</Button>
-                        </Link>
-                    </ButtonToolbar>
-                </nav>
-                <Outlet />
-            </Container>
+        <Container>
+            <Navbar bg="light" variant="light" fixed="top">
+                <Container>
+                    <Navbar.Brand as={Link} to="">
+                        <img
+                            alt=""
+                            src={process.env.PUBLIC_URL + '/icon.svg'}
+                            width="30"
+                            height="30"
+                            className="d-inline-block align-top"
+                        />{' '}
+                        Pick Player
+                    </Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link as={Link} to="custom">Custom Lists</Nav.Link>
+                        <Nav.Link as={Link} to="game">By Game</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
+            <Outlet />
         </Container>
     );
 }
