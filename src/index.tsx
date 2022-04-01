@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 import Default from "src/routes/default"
 import Custom from "src/routes/custom"
+import Game from "src/routes/game"
 
 import "src/index.css"
 import App from "src/App"
@@ -19,7 +20,12 @@ render(
         <Routes>
             <Route path="/pick-player/" element={<App />} >
                 <Route path="" element={<Default />} />
-                <Route path="custom" element={<Custom />} />
+                <Route path="custom" element={<Custom />}>
+                    <Route path=":customName" element={<Custom />} />
+                </Route>
+                <Route path="game" element={<Game />}>
+                    <Route path=":gameName" element={<Game />} />
+                </Route>
                 <Route // No match case
                     path="*"
                     element={
