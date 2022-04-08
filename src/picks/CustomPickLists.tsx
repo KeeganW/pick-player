@@ -8,7 +8,9 @@ export const DEFAULT_PICKS = [
   'The oldest player',
   'The youngest player',
   'The player with the most recent birthday',
+  'The player with the soonest upcoming birthday',
   'The player who has been deepest in the sea',
+  'The player who has been at the highest elevation (not including aircraft)',
   'The player who last read a history book',
   'The player who carried the heaviest thing today (stomachs do not count)',
   'The player who last held a piece of gold (currently worn jewelry does not count)',
@@ -60,6 +62,8 @@ export const DEFAULT_PICKS = [
   'The player who last listened to a Katy Perry song, willingly or otherwise',
   'The player who last hugged a significant other',
   'The player who speaks the most languages (including fictional languages)',
+  'The player who has the most unread notifications on their phone',
+  'The player who has the least unread notifications on their phone',
 ]
 
 export const TAS_PICKS = [
