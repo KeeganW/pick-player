@@ -23,7 +23,7 @@ export function useListedValues(paramName: string, sources: { [name: string]: Li
   const [reload, setReload] = useState(false)
   const rerollButton = (
     <div className="position-absolute bottom-0 start-50 translate-middle">
-      <Button onClick={() => setReload(!reload)}>
+      <Button className="btn-lg" onClick={() => setReload(!reload)}>
         Reroll
       </Button>
     </div>

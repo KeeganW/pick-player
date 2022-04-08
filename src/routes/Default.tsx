@@ -15,7 +15,7 @@ export function Default() {
   }, [location.key])
   const rerollButton = (
     <div className="position-absolute bottom-0 start-50 translate-middle">
-      <Button onClick={() => setFirstPick(sample(DEFAULT_PICKS))}>
+      <Button className="btn-lg" onClick={() => setFirstPick(sample(DEFAULT_PICKS))}>
         Reroll
       </Button>
     </div>
