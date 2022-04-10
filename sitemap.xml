@@ -2,14 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://keeganw.github.io/pick-player/</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://keeganw.github.io/pick-player/#/game</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://keeganw.github.io/pick-player/#/custom</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1</priority>
   </url>
 </urlset>
